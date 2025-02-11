@@ -22,13 +22,12 @@ jobs:
       with:
         python-version: "3.10"
 
-    - name: update certificate
-      run: |
-        apt-get update && apt-get install -y ca-certificates && update-ca-certificates
+#    - name: update certificate
+#      run: |
+#        apt-get update && apt-get install -y ca-certificates && update-ca-certificates
 
     - name: install dependecies
       run: |
-        pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org -r requirements.txt
         pip install -r requirements.txt
 
     - name: pytest
