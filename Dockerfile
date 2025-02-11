@@ -3,8 +3,7 @@ FROM python:3.10-slim
 WORKDIR /app
 COPY . .
 
-
-RUN pip install --upgrade certifi
-# command for python requirements of this project
+RUN apt-get update && apt-get install -y ca-certificates && update-ca-certificates
+RUN pip install --trusted-host pypi.org --trusted-host pypi.python.org --trusted-host files.pythonhosted.org -r requirements.txt
 RUN pip install -r requirements.txt
 CMD [ "python", "app.py" ]
